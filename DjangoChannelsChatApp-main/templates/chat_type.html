@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Chat Type</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #075e54;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(182, 37, 37, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #075e54; /* WhatsApp green */
+        }
+
+        form {
+            text-align: center;
+        }
+
+        label {
+            font-size: 18px;
+            color: #333;
+            margin-right: 10px;
+        }
+
+        input[type="radio"] {
+            display: none;
+        }
+
+        input[type="radio"] + label {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #e0e0e0;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="radio"]:checked + label {
+            background-color: #075e54; /* WhatsApp green */
+            color: #fff;
+        }
+
+        button {
+            display: block;
+            margin-left: 230px;
+            margin-top: 20px ;
+            padding: 10px 20px;
+            background-color: #075e54; /* WhatsApp green */
+            color: #fff;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 18px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #128c7e; /* Darker shade of WhatsApp green */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Select Chat Type</h1>
+        <form method="post">
+            {% csrf_token %}
+            <input type="radio" id="personal" name="chat_type" value="personal">
+            <label for="personal">Private Chat</label>
+            <input type="radio" id="group" name="chat_type" value="group">
+            <label for="group">Group Chat</label>
+            <input type="radio" id="logout" name="chat_type" value="logout">
+            <label  for="logout">Logout</label>
+            <button type="submit">Start Chat</button>
+        </form>
+    </div>
+</body>
+</html>
